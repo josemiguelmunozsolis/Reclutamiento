@@ -29,13 +29,13 @@ response = requests.request("GET", url, headers=headers, data = payload)
 response = response.text.encode('utf8')
 prePayload = json.loads(response.decode('utf-8'))["variants"]
 
-#Tercer requerimiento, se agregan 50 ítmes a todas la variantes 
+#Tercer requerimiento, se actualiza valor a 50 de todas la variantes del producto
 for variants in prePayload:
     variants["quantity"] = 50
     
 url = "https://centry.cl/conexion/v1/products/5f8fa2e21e390148a0e93604.json"
 
-#Primer y segundo requerimeinto, se cambia el título del ítem y se cambia el precio
+#Primer y segundo requerimiento, se cambia el título del ítem y se cambia el precio
 payload = {
     "name" : "José Miguel Muñoz Solís",
     "price_compare": 9990,
